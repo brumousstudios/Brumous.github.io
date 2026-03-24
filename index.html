@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Brumous Studios — independent game developer based in Finland." />
+  <title>Brumous Studios</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ── Landing-specific styles ── */
+
+    /* Hero — full viewport height, stone texture background */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(0.8rem, 2vw, 1.4rem);
+      text-align: center;
+      padding: 0 2rem;
+
+      background-image: url('img/background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* Dark overlay on hero only */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(6, 6, 6, 0.78);
+      pointer-events: none;
+    }
+
+    /* Vignette on hero */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at center,
+        transparent 25%,
+        rgba(6, 6, 6, 0.6) 100%
+      );
+      pointer-events: none;
+    }
+
+    .hero > * { position: relative; z-index: 1; }
+
+    .hero-logo {
+      width: clamp(130px, 32vmin, 340px);
+      height: auto;
+      animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(0.55rem, 1.3vw, 0.75rem);
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      animation: fadeUp 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(0.5rem, 1vw, 0.65rem);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      animation: fadeUp 2.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+
+    /* Scroll hint arrow */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0;
+      animation: fadeUp 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .scroll-hint span {
+      font-family: var(--font-display);
+      font-size: 0.5rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    .scroll-arrow {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, var(--text-faint), transparent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 1; }
+    }
+
+    /* ── About section below hero ── */
+    .about-section {
+      background: var(--black);
+      padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 2rem);
+    }
+
+    .about-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .about-label {
+      font-family: var(--font-display);
+      font-size: 0.62rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--frost);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .about-inner h2 {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    .about-inner p {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 1.85;
+      color: var(--text-secondary);
+      max-width: 640px;
+    }
+
+    .about-inner p + p { margin-top: 1rem; }
+
+    /* Quick links at bottom of about */
+    .about-links {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .about-links a {
+      font-family: var(--font-display);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.2s;
+    }
+
+    .about-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--frost);
+      transition: width 0.3s;
+    }
+
+    .about-links a:hover { color: var(--text-primary); }
+    .about-links a:hover::after { width: 100%; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Nav sits above hero — transparent bg on landing */
+    .nav-landing {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1rem, 4vw, 2.5rem);
+      background: rgba(6, 6, 6, 0);
+      border-bottom: 1px solid rgba(255,255,255,0);
+      backdrop-filter: blur(0px);
+      transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+    }
+
+    /* Nav becomes solid once user scrolls past hero */
+    .nav-landing.scrolled {
+      background: rgba(6, 6, 6, 0.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Reuse shared nav component styles */
+    .nav-landing .nav-logo,
+    .nav-landing .nav-links,
+    .nav-landing .nav-links a,
+    .nav-landing .nav-logo-text,
+    .nav-landing .nav-logo-text span,
+    .nav-landing .nav-toggle,
+    .nav-landing .nav-toggle span {
+      /* Inherited from style.css .nav-* rules */
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Nav — fixed, fades in on scroll -->
+  <nav class="nav nav-landing" id="landing-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="img/logo_horizontal.png" alt="Brumous Studios" />
+      <!--<div class="nav-logo-text">
+        Brumous
+        <span>Studios</span>
+      </div>-->
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"
+      onclick="document.querySelector('.nav-landing .nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="blog.html">Devblog</a></li>
+      <li><a href="renascent.html">Renascent</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero — full screen -->
+  <section class="hero">
+    <img class="hero-logo" src="img/hero_logo.png" alt="Brumous Studios" />
+    <p class="hero-name">Something is coming</p>
+    <!--<p class="hero-tagline">Something is coming</p>-->
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- Studio about — scrolled into -->
+  <section class="about-section">
+    <div class="about-inner">
+      <span class="about-label">The studio</span>
+
+      <h2>Independent game development<br/>from Finland</h2>
+
+      <!--
+        Studio description here.
+      -->
+      <p>
+        Brumous Studios is a one-person half-assed independent game development studio
+        based in Finland. I'm learning game development on the side while working and trying to finish my studies.
+        Go big or go... brumous?
+      </p>
+
+      <p>
+        Currently in development: Renascent, a third-person action RPG set
+        in an original fantasy world rooted in nordic mythology and folklore.
+        Built in Unreal Engine 5.
+      </p>
+
+      <p>
+        This is a "for-fun" project, not taking it toooo seriously (do not be fooled by the overkill of a website etc. This is all just me procrastinating on "real" stuff...)
+      </p>
+
+      <div class="about-links">
+        <a href="renascent.html">About Renascent →</a>
+        <a href="blog.html">Devblog →</a>
+        <a href="contact.html">Contact →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    Brumous Studios &copy; 2026
+  </footer>
+
+  <script>
+    // Nav becomes solid after scrolling past hero
+    const nav = document.getElementById('landing-nav');
+    const hero = document.querySelector('.hero');
+
+    function onScroll() {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      if (heroBottom < 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  </script>
+
+</body>
+</html>

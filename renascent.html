@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Renascent — a Finnish mythology action RPG by Brumous Studios." />
+  <title>Renascent — Brumous Studios</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="img/logo_horizontal.png" alt="Brumous Studios" />
+      <!--<div class="nav-logo-text">
+        Brumous
+        <span>Studios</span>
+      </div>-->
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"
+      onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="blog.html">Devblog</a></li>
+      <li><a href="renascent.html" class="active">Renascent</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+
+    <header class="page-header">
+      <h1>Renascent</h1>
+      <p class="subtitle">Current project — in development</p>
+    </header>
+
+    <!-- HOOK — atmospheric opening line -->
+    <p class="game-hook">
+      <!--
+        Write a one or two sentence hook here — something evocative that
+        captures the feeling of the game without over-explaining it.
+        Example below, replace with your own words.
+      -->
+      A third-person action RPG set at the threshold between life and the
+      Finnish underworld. Die. Return. Ascend.
+    </p>
+
+    <!-- HOOK IMAGE 1 — replace src with your actual image -->
+    <!--
+    <img class="game-image" src="gallery/oathwell-concept.jpg"
+         alt="Oathwell — the hub world of Renascent" />
+    -->
+
+    <p>
+      <!--
+        Write a short description of the game here — 2 to 4 paragraphs.
+        Focus on atmosphere and feeling over feature lists.
+        What is the world like? Who is the player? What drives them?
+      -->
+      The player arrives at the gates of Manala — the Finnish afterlife —
+      and is pulled back by a pale spirit woman, bound to an impossible tower
+      called Oathwell by an ancient talisman. The talisman returns the player
+      to Oathwell upon death, cursing them to ascend the tower as many times
+      as it takes.
+    </p>
+
+    <p>
+      Renascent draws from Finnish shamanic mythology and folklore rather than
+      the more familiar Norse or Celtic traditions. Shamans, nature spirits,
+      ancient curses, and the will to survive against forces that predate memory.
+    </p>
+    <img src="img/renascent_title.jpg" alt="IMAGE NOT FOUND, MUST'VE BEEN THE WIND"/>
+
+
+    <hr />
+
+    <!-- HOOK IMAGE 2 — replace src with your actual image -->
+    <!--
+    <img class="game-image" src="gallery/player-character.jpg"
+         alt="The player character — heavily tattooed, white eyes" />
+    -->
+    
+    <!-- QUICK DETAILS -->
+    <h2>Details</h2>
+
+    <p style="color: var(--text-secondary); font-size: 1rem; line-height: 2;">
+      <strong style="color: var(--text-primary); font-family: var(--font-display);
+        font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;">
+        Genre
+      </strong><br/>
+      Third-person action RPG &mdash; souls-like combat, roguelite progression
+    </p>
+
+    <p style="color: var(--text-secondary); font-size: 1rem; line-height: 2;">
+      <strong style="color: var(--text-primary); font-family: var(--font-display);
+        font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;">
+        Engine
+      </strong><br/>
+      Unreal Engine 5
+    </p>
+
+    <p style="color: var(--text-secondary); font-size: 1rem; line-height: 2;">
+      <strong style="color: var(--text-primary); font-family: var(--font-display);
+        font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;">
+        Platform
+      </strong><br/>
+      PC — Steam (planned)
+    </p>
+
+    <p style="color: var(--text-secondary); font-size: 1rem; line-height: 2;">
+      <strong style="color: var(--text-primary); font-family: var(--font-display);
+        font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;">
+        Status
+      </strong><br/>
+      Early development
+    </p>
+
+    <hr />
+
+    <!-- DEVBLOG CTA -->
+    <p style="color: var(--text-secondary);">
+      Interested in following the development of Renascent?
+      The devblog covers progress updates, art direction decisions,
+      and the making-of as the project takes shape.
+    </p>
+
+    <div style="margin-top: 1.5rem;">
+      <a href="blog.html" style="
+        display: inline-block;
+        font-family: var(--font-display);
+        font-size: 0.65rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        padding: 0.75rem 1.5rem;
+        transition: border-color 0.2s, background 0.2s;
+        text-decoration: none;
+      "
+      onmouseover="this.style.borderColor='var(--border-hover)'; this.style.background='var(--surface)'"
+      onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">
+        Follow development →
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    Brumous Studios &copy; 2026
+  </footer>
+
+</body>
+</html>

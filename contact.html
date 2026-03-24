@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact — Brumous Studios." />
+  <title>Contact — Brumous Studios</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="img/logo_horizontal.png" alt="Brumous Studios" />
+      <!--<div class="nav-logo-text">
+        Brumous
+        <span>Studios</span>
+      </div>-->
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"
+      onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="blog.html">Devblog</a></li>
+      <li><a href="renascent.html">Renascent</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+    <header class="page-header">
+      <h1>Contact</h1>
+      <p class="subtitle">Get in touch</p>
+    </header>
+
+    <p style="color: var(--text-secondary);">
+      Suggestions, collabs, or general questions about
+      Renascent or Brumous Studios.
+    </p>
+
+    <div class="contact-links">
+
+      <a href="mailto:dev@brumous.fi" class="contact-link">
+        <span class="contact-link-label">Email</span>
+        <span class="contact-link-value">dev@brumous.fi</span>
+      </a>
+
+      <a href="https://twitter.com/BrumousStudios" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">Twitter / X</span>
+        <span class="contact-link-value">@BrumousStudios</span>
+      </a>
+
+      <a href="https://youtube.com/@BrumousStudios" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">YouTube</span>
+        <span class="contact-link-value">@BrumousStudios</span>
+      </a>
+
+      <!--
+      <a href="https://ko-fi.com/brumousstudios" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">Ko-fi</span>
+        <span class="contact-link-value">ko-fi.com/brumousstudios</span>
+      </a>
+      -->
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    Brumous Studios &copy; 2026
+  </footer>
+
+</body>
+</html>
