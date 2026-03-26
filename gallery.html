@@ -23,26 +23,8 @@
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="https://brumous.fi" class="nav-logo">
-      <img src="img/logo_horizontal.png" alt="Brumous Studios" />
-      <!--<div class="nav-logo-text">
-        Brumous
-        <span>Studios</span>
-      </div>-->
-    </a>
-    <button class="nav-toggle" aria-label="Toggle menu"
-      onclick="this.nextElementSibling.classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="devlog">Devlog</a></li>
-      <li><a href="renascent">Renascent</a></li>
-      <li><a href="gallery" class="active">Gallery</a></li>
-      <li><a href="contact">Contact</a></li>
-    </ul>
-  </nav>
-
+  <div id="nav-placeholder"></div>
+  
   <main class="page" style="max-width: 1100px;">
     <header class="page-header">
       <h1>Gallery</h1>
@@ -80,9 +62,8 @@
     <img id="lightbox-img" src="" alt="" />
   </div>
 
-  <footer class="footer">
-    Brumous Studios &copy; 2026
-  </footer>
+  <div id="footer-placeholder"></div>
+  <script src="/js/components.js"></script>
 
   <script>
     function openLightbox(src) {
