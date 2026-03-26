@@ -241,15 +241,16 @@
   </style>
 </head>
 <body>
-
-  <!-- Nav — fixed, fades in on scroll -->
+  
+  <div id="nav-placeholder"></div>
+  <!-- Nav — fixed, fades in on scroll 
   <nav class="nav nav-landing" id="landing-nav">
     <a href="https://brumous.fi" class="nav-logo">
       <img src="img/logo_horizontal.png" alt="Brumous Studios" />
       <!--<div class="nav-logo-text">
         Brumous
         <span>Studios</span>
-      </div>-->
+      </div>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu"
       onclick="document.querySelector('.nav-landing .nav-links').classList.toggle('open')">
@@ -261,7 +262,7 @@
       <li><a href="gallery">Gallery</a></li>
       <li><a href="contact">Contact</a></li>
     </ul>
-  </nav>
+  </nav>-->
 
   <!-- Hero — full screen -->
   <section class="hero">
@@ -309,9 +310,8 @@
     </div>
   </section>
 
-  <footer class="footer">
-    Brumous Studios &copy; 2026
-  </footer>
+  <div id="footer-placeholder"></div>
+  <script src="/js/components.js"></script>
 
   <script>
     // Nav becomes solid after scrolling past hero
@@ -329,6 +329,7 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
   </script>
+  
 
 </body>
 </html>
