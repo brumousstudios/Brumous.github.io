@@ -1,5 +1,6 @@
 /* ============================================================
-   BRUMOUS STUDIOS — Global Stylesheet v1
+   BRUMOUS STUDIOS — Global Stylesheet v3
+   Studio-coded. Cool, neutral, brand-aligned.
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
@@ -13,20 +14,15 @@
   --border:       rgba(255, 255, 255, 0.07);
   --border-hover: rgba(255, 255, 255, 0.16);
 
-  /* Cool neutral palette — no amber, matches Brumous brand */
-  --text-primary:   #cdd0d4;   /* cool off-white, slightly blue-grey */
-  --text-secondary: #9198a0;   /* muted cool grey */
-  --text-faint:     #6d7277;
+  --text-primary:   #cdd0d4;
+  --text-secondary: #72787f;
+  --text-faint:     #383c40;
 
-  /* Brand accent — cold steel white, matches the logo mark */
   --accent:       #b8bfc7;
   --accent-dim:   rgba(184, 191, 199, 0.10);
-  --accent-glow:  rgba(184, 191, 199, 0.04);
-
-  /* Subtle frost line — used for active states and underlines */
   --frost:        #8a9aa8;
 
-  --nav-height:   100px;
+  --nav-height:   60px;
   --max-width:    840px;
   --font-display: 'Cinzel', 'Palatino Linotype', serif;
   --font-body:    'EB Garamond', Georgia, serif;
@@ -34,7 +30,7 @@
 
 /* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-y: scroll;}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
@@ -43,7 +39,12 @@ body {
   color: var(--text-primary);
   background-color: var(--black);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Push footer to bottom */
+main { flex: 1; }
 
 img { max-width: 100%; display: block; }
 a   { color: var(--accent); text-decoration: none; transition: color 0.2s; }
@@ -69,45 +70,7 @@ hr {
   margin: 2.5rem 0;
 }
 
-/* ── Scrollbar style */
-
-::-webkit-scrollbar{
-  background: rgba(47, 47, 48, 0.089);
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(40, 40, 41, 0.900);
-  border-radius: 10px;
-  width: 0,5rem;
-}
-
-
-/* Modern browsers with `scrollbar-*` support */
-@supports (scrollbar-width: auto) {
-    .scroller {
-        scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
-        scrollbar-width: var(--scrollbar-width);
-    }
-}
-
-/* Legacy browsers with `::-webkit-scrollbar-*` support */
-@supports selector(::-webkit-scrollbar) {
-    .scroller::-webkit-scrollbar-thumb {
-        background: var(--scrollbar-color-thumb);
-    }
-    .scroller::-webkit-scrollbar-track {
-        background: var(--scrollbar-color-track);
-    }
-    .scroller::-webkit-scrollbar {
-        max-width: var(--scrollbar-width-legacy);
-        max-height: var(--scrollbar-width-legacy);
-    }
-}
-
-
-/* ── Navigation — shared across all inner pages ── */
-
+/* ── Navigation ── */
 .nav {
   position: sticky;
   top: 0;
@@ -131,7 +94,7 @@ hr {
 }
 
 .nav-logo img {
-  height: 48px;
+  height: 32px;
   width: auto;
 }
 
@@ -298,7 +261,24 @@ hr {
   font-style: italic;
 }
 
-/* ── Renascent page image ── */
+/* ── Video embed ── */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Game page ── */
 .game-image {
   width: 100%;
   border: 1px solid var(--border);
@@ -459,14 +439,39 @@ hr {
 /* ── Footer ── */
 .footer {
   border-top: 1px solid var(--border);
-  padding: 2rem clamp(1rem, 4vw, 2.5rem);
-  text-align: center;
+  padding: 1.5rem clamp(1rem, 4vw, 2.5rem);
+  margin-top: auto;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
   font-family: var(--font-display);
   font-size: 0.58rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-faint);
 }
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(--text-faint);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.footer-links a:hover { color: var(--text-secondary); }
 
 /* ── Back link ── */
 .back-link {
@@ -502,6 +507,7 @@ hr {
   .nav-links.open { display: flex; }
   .nav-toggle { display: flex; }
   .nav { position: relative; }
-
   .gallery-grid { grid-template-columns: 1fr; }
+
+  .footer-inner { flex-direction: column; align-items: flex-start; }
 }
