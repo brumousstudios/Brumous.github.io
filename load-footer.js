@@ -1,5 +1,5 @@
 document.getElementById("footer").innerHTML = `
-    <footer class="site-footer>
+    <footer class="footer">
         <p>Brumous Studios © 2026</p>
         <div class="footer-links">
             <a href="#">Youtube</a>  |  
