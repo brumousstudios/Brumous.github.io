@@ -1,9 +1,11 @@
-document.getElementById("footer").innerHTML = `
-    <footer class="footer">
-        <p>Brumous Studios © 2026</p>
-        <div class="footer-links">
-            <a href="#">Youtube</a>  |  
-            <a href="#">Twitter / X</a>
-        </div>
-    </footer>
-`;
+function loadComponent(id, file) {
+    fetch(file)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(id).innerHTML = data;
+        });
+}
+
+// Call the function for both
+loadComponent('header-placeholder', 'header.html');
+loadComponent('footer-placeholder', 'footer.html');
